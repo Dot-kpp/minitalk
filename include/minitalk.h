@@ -3,7 +3,7 @@
 
 #include <signal.h>
 #include <zconf.h>
-#include "libft.h"
+#include "../libft/headers/libft.h"
 
 # define BUFFSIZE 1
 
