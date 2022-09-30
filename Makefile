@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra -o minitalk
 
-SRCS = 	src/minitalk.c
+SRCS = 	src/client.c src/server.c src/error.c
 
 OBJ = $(SRCS:%c=%o)
 
@@ -13,9 +13,9 @@ LIBFT = ./libft/libft.a
 $(NAME): $(OBJ)
 	@echo "Your shit is compiling"
 	@echo ""
-	@ar rcs $(NAME) $(OBJ)
 	@echo ""
-	@$(CC) $(CFLAGS) $(NAME) $(LIBFT)
+	@$(CC) client.o error.o /libft/libft.a -o client
+	@$(CC) server.o error.o /libft/libft.a -o server
 	@mkdir -p objs && mv ./src/*.o ./objs/
 	@mkdir -p bin && mv minitalk.a ./bin
 	@echo "Your shit is compiled"
