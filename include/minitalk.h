@@ -16,4 +16,9 @@
 # endif
 
 
+void	pid_error(char *str_error);
+void	input_error(void);
+void	success(int sig);
+
+
 #endif
