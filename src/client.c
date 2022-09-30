@@ -1,4 +1,4 @@
-#include "../includes/minitalk.h"
+#include "../include/minitalk.h"
 
 void	send_char(int pid, unsigned char byte)
 {

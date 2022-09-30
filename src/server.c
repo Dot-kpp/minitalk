@@ -1,4 +1,4 @@
-#include "../includes/minitalk.h"
+#include "../include/minitalk.h"
 
 void		print_pid(void)
 {
@@ -13,5 +13,4 @@ void		print_pid(void)
 int			main(void)
 {
 	print_pid();
-	main_handler();
 }

@@ -1,4 +1,4 @@
-#include "../includes/minitalk.h"
+#include "../include/minitalk.h"
 
 void	pid_error(char *str_error)
 {
