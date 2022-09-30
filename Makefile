@@ -14,10 +14,10 @@ $(NAME): $(OBJ)
 	@echo "Your shit is compiling"
 	@echo ""
 	@echo ""
-	@$(CC) client.o error.o /libft/libft.a -o client
-	@$(CC) server.o error.o /libft/libft.a -o server
-	@mkdir -p objs && mv ./src/*.o ./objs/
-	@mkdir -p bin && mv minitalk.a ./bin
+	@$(CC) src/client.o src/error.o libft/libft.a -o client
+	@$(CC) src/server.o src/error.o libft/libft.a -o server
+	#@mkdir -p objs && mv ./src/*.o ./objs/
+	#@mkdir -p bin && mv minitalk.a ./bin
 	@echo "Your shit is compiled"
 	@echo ""
 
