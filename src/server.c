@@ -10,6 +10,8 @@ void		print_pid(void)
 	write(1, "\n", 1);
 }
 
+t_bool server_handler(void);
+
 int			main(void)
 {
 	print_pid();

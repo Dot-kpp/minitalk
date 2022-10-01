@@ -26,7 +26,7 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) *.out *.exe ./objs ./bin ./libft/*.o 
+	@rm -rf $(NAME) *.out *.exe server client ./objs ./bin ./libft/*.o 
 	@echo ""
 	@echo "Your shit is clean af!"
 	@echo ""

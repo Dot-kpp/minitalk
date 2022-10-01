@@ -7,13 +7,11 @@
 
 # define BUFFSIZE 1
 
-# ifndef TRUE
-#  define TRUE 1
-# endif
-
-# ifndef FALSE
-#  define FALSE 0
-# endif
+typedef enum e_bool
+{
+    True,
+    False,
+}   t_bool;
 
 
 void	pid_error(char *str_error);
