@@ -10,6 +10,9 @@ void		print_pid(void)
 	write(1, "\n", 1);
 }
 
+void bit_turned_on();
+void bit_turned_off();
+
 t_bool server_handler(void);
 
 int			main(void)
