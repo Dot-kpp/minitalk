@@ -2,7 +2,6 @@
 # define MINITALK_H
 
 #include <signal.h>
-#include <zconf.h>
 #include "../libft/headers/libft.h"
 
 # define BUFFSIZE 1
@@ -13,6 +12,10 @@ typedef enum e_bool
     False,
 }   t_bool;
 
+typedef struct s_stack
+{
+    char message[BUFFERSIZE];
+}   t_stack;
 
 void	pid_error(char *str_error);
 void	input_error(void);
