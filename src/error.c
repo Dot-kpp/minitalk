@@ -12,6 +12,12 @@ void	input_error(void)
 	exit(0);
 }
 
+void	signal_error(void)
+{
+	write(1, "Signal error\n", 13);
+	exit(0);
+}
+
 void	success(int sig)
 {
 	(void)sig;
