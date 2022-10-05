@@ -8,7 +8,7 @@ SRCS = 	src/client.c src/server.c src/error.c
 
 OBJ = $(SRCS:%c=%o)
 
-LIBFT = ./libft/libft.a
+LIBFT = ./libft/
 
 $(NAME): $(OBJ)
 	@echo "Your shit is compiling"

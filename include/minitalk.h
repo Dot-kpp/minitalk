@@ -6,7 +6,7 @@
 #include <zconf.h>
 #include "../libft/headers/libft.h"
 
-# define BUFFSIZE 1
+# define BUFFSIZE 1024
 
 typedef enum e_bool
 {
