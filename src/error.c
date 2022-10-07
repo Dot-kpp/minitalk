@@ -18,8 +18,7 @@ void	signal_error(void)
 	exit(0);
 }
 
-void	success(int sig)
+void	success(void)
 {
-	(void)sig;
 	write(1, "Received.\n", 10);
 }

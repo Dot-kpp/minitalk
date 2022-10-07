@@ -15,7 +15,7 @@ void	send_char(int pid, unsigned char byte)
 		else if (kill(pid, SIGUSR2) == -1)
 				pid_error("Invalid pid\n");
 		i >>= 1;
-		usleep(100);
+		usleep(200);
 	}
 }
 
