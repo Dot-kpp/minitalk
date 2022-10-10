@@ -35,7 +35,7 @@ t_stack print = {{0}, 1 << 6, 0, False, False};
 
 void	pid_error(char *str_error);
 void	input_error(void);
-void	success(void);
+void	success(int sig);
 void	signal_error(void);
 
 
