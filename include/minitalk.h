@@ -18,7 +18,7 @@ typedef struct s_stack
     char message[BUFFSIZE];
     int top_bit;
     int top_byte;
-    t_bool reveived;
+    t_bool received;
     t_bool overflow;
 }   t_stack;
 
