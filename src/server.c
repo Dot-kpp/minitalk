@@ -10,8 +10,40 @@ void		print_pid(void)
 	write(1, "\n", 1);
 }
 
-void bit_turned_on();
-void bit_turned_off();
+void bit_turned_on(int sig, siginfo_t *info, void *context)
+{
+	(void)sig;
+	(void)context;
+	(void)info;
+	if (!print.top_bit)
+	{
+		print.top_bit = 1 << 6;
+		++(print.top_byte);
+	}
+	print.message[print.top_byte] += print.top_bit;
+	print.top_bit >>= 1;
+	if (print.top_byte == BUFFSIZE - 2 && !print.top_bit)
+		print.buff_overflow = TRUE;
+}
+
+void bit_turned_off(int sig, siginfo_t *info, void *context)
+{
+	(void)sig;
+	(void)context;
+	if (!print.top_bit)
+	{
+		print.top_bit = 1 << 6;
+		++(print.top_byte);
+	}
+	print.top_bit >>= 1;
+	if (print.top_byte == BUFFSIZE - 2 && !print.top_bit)
+		print.buff_overflow = TRUE;
+	else if (!print.message[print.top_byte] && !print.top_bit)
+	{
+		print.all_receive = TRUE;
+		kill(info->si_pid, SIGUSR1);
+	}
+}
 
 t_bool server_handler(void)
 {
@@ -35,11 +67,19 @@ t_bool server_handler(void)
 
 int			main(void)
 {
-	struct sigaction sa;
+	struct sigaction active_bit;
+	struct sigaction null_bit;
 
-	sa.sa_handler = &server_handle;
-	sa.sa_flags = SA_SIGINFO;
-	
+	active_bit.sa_sigaction = bit_turned_on;
+	null_bit.sa_sigaction = bit_turned_off;
+	active_bit.sa_flags = SA_SIGINFO;
+	null_bit.sa_flags = SA_SIGINFO;
+
+	if (sigaction(SIGUSR1, &active_bit, NULL) != 0)
+		signal_error();
+	if (sigaction(SIGUSR2, &null_bit, NULL) != 0)
+		signal_error();
 	print_pid();
+	ft_bzero(print.message, BUFFSIZE);
 	server_handler();
 }
