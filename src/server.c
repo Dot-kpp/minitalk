@@ -23,7 +23,7 @@ void bit_turned_on(int sig, siginfo_t *info, void *context)
 	print.message[print.top_byte] += print.top_bit;
 	print.top_bit >>= 1;
 	if (print.top_byte == BUFFSIZE - 2 && !print.top_bit)
-		print.buff_overflow = TRUE;
+		print.overflow = TRUE;
 }
 
 void bit_turned_off(int sig, siginfo_t *info, void *context)
@@ -37,10 +37,10 @@ void bit_turned_off(int sig, siginfo_t *info, void *context)
 	}
 	print.top_bit >>= 1;
 	if (print.top_byte == BUFFSIZE - 2 && !print.top_bit)
-		print.buff_overflow = TRUE;
+		print.overflow = TRUE;
 	else if (!print.message[print.top_byte] && !print.top_bit)
 	{
-		print.all_receive = TRUE;
+		print.received = TRUE;
 		kill(info->si_pid, SIGUSR1);
 	}
 }
