@@ -11,6 +11,10 @@ OBJ = $(SRCS:%c=%o)
 LIBFT = ./libft/
 
 $(NAME): $(OBJ)
+	@echo "Your libft is compiling"
+	@echo ""
+	@$(MAKE) -C libft
+	@echo ""
 	@echo "Your shit is compiling"
 	@echo ""
 	@echo ""
@@ -26,7 +30,7 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -rf $(NAME) *.out *.exe server client ./objs ./bin ./libft/*.o 
+	@rm -rf $(NAME) *.out *.exe server client ./objs ./bin ./libft/src/*.o 
 	@echo ""
 	@echo "Your shit is clean af!"
 	@echo ""
