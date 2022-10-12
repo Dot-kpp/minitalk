@@ -24,15 +24,6 @@ typedef struct s_stack
 
 t_stack print_mess = {{0}, 1 << 6, 0, False, False};
 
-// typedef struct s_msg
-// {
-// 	char	c;
-// 	size_t	size;
-// }			t_msg;
-
-// t_msg		g_data;
-
-
 void	pid_error(char *str_error);
 void	input_error(void);
 void	success(int sig);

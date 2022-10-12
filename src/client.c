@@ -2,7 +2,7 @@
 
 void	send_char(int pid, unsigned char byte)
 {
-	int		i;
+	int	i;
 
 	i = 1 << 6;
 	while (i)
