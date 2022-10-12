@@ -22,7 +22,7 @@ typedef struct s_stack
     t_bool overflow;
 }   t_stack;
 
-t_stack print = {{0}, 1 << 6, 0, False, False};
+t_stack print_mess = {{0}, 1 << 6, 0, False, False};
 
 // typedef struct s_msg
 // {
